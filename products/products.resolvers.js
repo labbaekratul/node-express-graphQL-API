@@ -3,6 +3,7 @@ const {
   getProductByPrice,
   getProductById,
   addNewProduct,
+  addNewProductReview,
 } = require("./products.controllers");
 
 module.exports = {
@@ -21,6 +22,12 @@ module.exports = {
   Mutation: {
     addNewProduct: (_, agrs) => {
       return addNewProduct(agrs.id, agrs.description, agrs.price);
+    },
+
+    addNewProductReview: (_, agrs) => {
+      const dd = addNewProductReview(agrs.id, agrs.rating, agrs.comment);
+      console.log(dd);
+      return dd;
     },
   },
 };
